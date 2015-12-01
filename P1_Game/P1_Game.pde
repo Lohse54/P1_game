@@ -12,6 +12,7 @@ PImage backButton; //Infamous back-button returns!!
 PImage levelDarkButton;
 PImage levelAloneButton;
 PImage levelKidnapButton;
+PImage darkLevel_background;
 
 void setup() {
   size(1920,1080);//size of window 
@@ -37,6 +38,8 @@ void setup() {
   levelAloneButton.resize(width/6,height/5);
   levelKidnapButton = loadImage("kidnapping.gif");
   levelKidnapButton.resize(width/6,height/5);
+  darkLevel_background = loadImage("course1 - plain.jpg");
+  darkLevel_background.resize(width,height);
 }
 
 void draw(){
@@ -92,6 +95,8 @@ void draw(){
     if (mousePressed && mouseX > width/12 && mouseX < width/12 + backButton.width && mouseY > height/1.5 && mouseY < height/1.5 + backButton.height){
       gameState=0;
     }
+    if (mousePressed && mouseX > width/1.8 && mouseX < width/1.8 + backButton.width && mouseY > height/5 && mouseY < height/5 + backButton.height){
+      gameState=5;}
     break;
     case 3: //Info gamestate
     background(backgroundSubMenu);
@@ -134,6 +139,9 @@ void draw(){
     if (mousePressed && mouseX > width/12 && mouseX < width/12 + backButton.width && mouseY > height/1.5 && mouseY < height/1.5 + backButton.height){
       gameState=0;
     }
+    break;
+    case 5: //First level
+    background(darkLevel_background);
     break;
   }
 }

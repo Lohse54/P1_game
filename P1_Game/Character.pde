@@ -8,7 +8,7 @@ class Character {
   Character () {
     _charLocation = new PVector(50, height/1.5);
     _charSpeed = new PVector(1, 0.5);
-    _gravity = new PVector(0, 0.3);
+    _gravity = new PVector(0, 0.5);
     _charImage = loadImage("image.gif");
   }
   
@@ -26,6 +26,9 @@ class Character {
       }
       if (keyCode == UP || key == 'w') {
         _charLocation.y = _charLocation.y - _charSpeed.y;
+        if (_charLocation.y-(objectImage.height*1.5) > _charLocation.y) {
+          _charLocation.y = _charLocation.y + _gravity.y;
+        }
       }
     }
   }
@@ -39,5 +42,6 @@ class Character {
     if (_charLocation.y > height/1.5+_charImage.height){
       _charLocation.y = height/1.5+_charImage.height;
     }
+    if (_charLocation 
   }
 }

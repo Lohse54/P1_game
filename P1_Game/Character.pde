@@ -1,3 +1,5 @@
+Object colObject;
+
 class Character {
 
   PVector _charSpeed;
@@ -9,7 +11,7 @@ class Character {
     _charLocation = new PVector(50, height/1.5);
     _charSpeed = new PVector(1, 0.5);
     _gravity = new PVector(0, 0.5);
-    _charImage = loadImage("image.gif");
+    _charImage = loadImage("charTest.png");
   }
   
   void charDisplay () {
@@ -26,7 +28,7 @@ class Character {
       }
       if (keyCode == UP || key == 'w') {
         _charLocation.y = _charLocation.y - _charSpeed.y;
-        if (_charLocation.y-(objectImage.height*1.5) > _charLocation.y) {
+        if (_charLocation.y-(colObject.objectImageHeight()*1.5) > _charLocation.y) {
           _charLocation.y = _charLocation.y + _gravity.y;
         }
       }
@@ -42,11 +44,14 @@ class Character {
     if (_charLocation.y > height/1.5+_charImage.height){
       _charLocation.y = height/1.5+_charImage.height;
     }
-    if (_charLocation.x < objectLocation.x+objectImage.width) {
-      _charLocation.x = objectLocation.x+objectImage.width;
+    if (_charLocation.x < colObject.objectLocationX()+colObject.objectImageWidth()) {
+      _charLocation.x = colObject.objectLocationX()+colObject.objectImageWidth();
     }
-    if (_charLocation.x + _charImage.width > objectLocation.x) {
-      _charLocation.x = objectLocation.x - _charImage.width;
+    if (_charLocation.x + _charImage.width > colObject.objectLocationX()) {
+      _charLocation.x = colObject.objectLocationX() - _charImage.width;
+    }
+    if (_charLocation.y + _charImage.height > colObject.objectLocationY()) {
+      _charLocation.y = colObject.objectLocationY() - _charImage.height;
     }
   }
 }

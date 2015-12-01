@@ -13,6 +13,8 @@ PImage levelDarkButton;
 PImage levelAloneButton;
 PImage levelKidnapButton;
 PImage darkLevel_background;
+Character myHero;
+Object object;
 
 void setup() {
   size(1920,1080);//size of window 
@@ -40,6 +42,9 @@ void setup() {
   levelKidnapButton.resize(width/6,height/5);
   darkLevel_background = loadImage("course1 - plain.jpg");
   darkLevel_background.resize(width,height);
+  
+  myHero = new Character();
+  object = new Object(new PVector(1000,height/1.5), loadImage("block.jpg"));
 }
 
 void draw(){
@@ -142,6 +147,10 @@ void draw(){
     break;
     case 5: //First level
     background(darkLevel_background);
+    myHero.charDisplay();
+    myHero.charMove();
+    myHero.charEdges();
+    object.objectDisplay();
     break;
   }
 }

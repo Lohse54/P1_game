@@ -11,7 +11,7 @@ class Character {
     _charLocation = new PVector(50, height/1.5);
     _charSpeed = new PVector(1, 0.5);
     _gravity = new PVector(0, 0.5);
-    _charImage = loadImage("charTest.png");
+    _charImage = loadImage("charTest.gif");
   }
   
   void charDisplay () {

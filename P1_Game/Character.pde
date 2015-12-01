@@ -42,6 +42,11 @@ class Character {
     if (_charLocation.y > height/1.5+_charImage.height){
       _charLocation.y = height/1.5+_charImage.height;
     }
-    if (_charLocation 
+    if (_charLocation.x < objectLocation.x+objectImage.width) {
+      _charLocation.x = objectLocation.x+objectImage.width;
+    }
+    if (_charLocation.x + _charImage.width > objectLocation.x) {
+      _charLocation.x = objectLocation.x - _charImage.width;
+    }
   }
 }
